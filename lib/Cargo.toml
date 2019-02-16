@@ -1,5 +1,5 @@
 [package]
-name = "m-api"
+name = "mapi"
 version = "0.1.0"
 authors = ["Noah Altunian <noah@cirruslabs.io"]
 
