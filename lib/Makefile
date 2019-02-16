@@ -7,7 +7,7 @@ endif
 all: target/debug/libmapi.$(EXT)
 
 target/debug/libmapi.$(EXT): src/lib.rs Cargo.toml
-	cargo build --release
+	cargo build
 
 clean:
 	rm -rf target
