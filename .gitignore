@@ -1,2 +1,2 @@
-lib/Cargo.lock
-lib/target
+Cargo.lock
+target
