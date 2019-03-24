@@ -13,15 +13,6 @@ pub extern fn get_files_count() -> usize {
 }
 
 #[no_mangle]
-pub extern fn get_ram_used() -> u64 {
-    let mut sys = System::new();
-    sys.refresh_all();
-    let used_mem = sys.get_used_memory(); 
-    
-    return used_mem;
-}
-
-#[no_mangle]
 pub extern fn get_harddisk_avail() -> u64 {
     let mut sys = System::new();
     sys.refresh_disk_list();
@@ -35,3 +26,21 @@ pub extern fn get_harddisk_avail() -> u64 {
 
     return harddisk_avail;
 }
+
+#[no_mangle]
+pub extern fn get_homedirs_files_count() -> usize {
+    let path = "/home/";
+    let files_count = WalkDir::new(path).into_iter().count();
+
+    return files_count;    
+}
+
+#[no_mangle]
+pub extern fn get_ram_used() -> u64 {
+    let mut sys = System::new();
+    sys.refresh_all();
+    let used_mem = sys.get_used_memory(); 
+    
+    return used_mem;
+}
+
