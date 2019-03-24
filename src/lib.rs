@@ -36,6 +36,14 @@ pub extern fn get_homedirs_files_count() -> usize {
 }
 
 #[no_mangle]
+pub extern fn get_homedirs_mac_files_count() -> usize {
+    let path = "/Users/";
+    let files_count = WalkDir::new(path).into_iter().count();
+
+    return files_count;
+}
+
+#[no_mangle]
 pub extern fn get_ram_used() -> u64 {
     let mut sys = System::new();
     sys.refresh_all();
